@@ -1,0 +1,112 @@
+name: Build and Push Docker Images for Microfrontends
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - "v*"
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    if: github.ref == 'refs/heads/main'  # Ensure the job runs only on the main branch
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        microfrontend: [admin, mfe1, shell]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Ensure full history for versioning
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Preprocess repository owner to lowercase
+        id: preprocess
+        run: echo "REPO_OWNER=$(echo ${{ github.repository_owner }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+
+      - name: Extract Docker metadata with auto versioning
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: ghcr.io/${{ env.REPO_OWNER }}/${{ matrix.microfrontend }}-ui
+          labels: |
+            org.opencontainers.image.revision=${{ github.sha }}
+          tags: |
+            type=semver,pattern={{version}}
+            type=ref,event=branch
+            type=sha,prefix=,suffix=,format=short
+            type=raw,value=latest,enable={{is_default_branch}}
+
+      - name: Generate Version using Commit Count and Message
+        id: version
+        run: |
+          # Ensure all tags are fetched
+          git fetch --tags --force
+
+          # Get the latest tag (fallback to v1.0.0 if no tags exist)
+          LATEST_TAG=$(git tag --sort=-v:refname | grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' | head -n 1 || echo "v1.0.0")
+
+          # Extract major, minor, and patch numbers
+          MAJOR=$(echo $LATEST_TAG | cut -d. -f1 | tr -d 'v')
+          MINOR=$(echo $LATEST_TAG | cut -d. -f2)
+
+          # Count commits since the latest version tag to determine PATCH
+          PATCH=$(git rev-list $LATEST_TAG..HEAD --count)
+
+          # Get latest commit message
+          LAST_COMMIT_MSG=$(git log -1 --pretty=%B)
+
+          # If commit message contains "major", bump MAJOR and reset MINOR & PATCH
+          if echo "$LAST_COMMIT_MSG" | grep -q "major"; then
+            MAJOR=$((MAJOR + 1))
+            MINOR=0
+            PATCH=0
+          elif echo "$LAST_COMMIT_MSG" | grep -q "minor"; then
+            MINOR=$((MINOR + 1))
+            PATCH=0
+          fi
+
+          # Set version
+          NEW_VERSION="v$MAJOR.$MINOR.$PATCH"
+
+          # Store new version in GitHub Actions environment
+          echo "VERSION=$NEW_VERSION" >> $GITHUB_ENV
+          echo "New Version: $NEW_VERSION"
+
+      - name: Build and Push Docker Images
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: ./projects/${{ matrix.microfrontend }}/Dockerfile.${{ matrix.microfrontend }}
+          push: true
+          tags: |
+            ghcr.io/${{ env.REPO_OWNER }}/${{ matrix.microfrontend }}-ui:${{ env.VERSION }}
+            ghcr.io/${{ env.REPO_OWNER }}/${{ matrix.microfrontend }}-ui:latest
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Docker Scout CVEs
+        uses: docker/scout-action@v0.18.1
+        with:
+          command: cves
+          image: ghcr.io/${{ env.REPO_OWNER }}/${{ matrix.microfrontend }}-ui:${{ env.VERSION }}
+          only-severities: critical,high
+          write-comment: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          exit-code: true
+          summary: true

@@ -1,0 +1,22 @@
+/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
+/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
+{
+  // Extends the base TypeScript configuration file
+  "extends": "../../tsconfig.json",
+  
+  "compilerOptions": {
+    // Specifies the output directory for the compiled files
+    "outDir": "../../out-tsc/spec",
+    
+    // Specifies the type declaration files to be included in the compilation
+    "types": [
+      "jasmine" // Includes Jasmine type definitions for testing
+    ]
+  },
+  
+  // Specifies the files to be included in the compilation
+  "include": [
+    "src/**/*.spec.ts", // Includes all spec files in the src directory
+    "src/**/*.d.ts" // Includes all declaration files in the src directory
+  ]
+}
