@@ -14,6 +14,9 @@ jobs:
   build:
     if: github.ref == 'refs/heads/main'  # Ensure the job runs only on the main branch
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
     strategy:
       matrix:
         microfrontend: [admin, mfe1, shell]
@@ -33,6 +36,8 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+
+        
 
       - name: Preprocess repository owner to lowercase
         id: preprocess
