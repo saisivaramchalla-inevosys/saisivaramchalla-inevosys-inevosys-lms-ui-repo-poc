@@ -19,7 +19,7 @@ jobs:
       contents: read
     strategy:
       matrix:
-        microfrontend: [admin, mfe1, shell]
+        microfrontend: [admin1, mfe1, shell1]
 
     steps:
       - name: Checkout code

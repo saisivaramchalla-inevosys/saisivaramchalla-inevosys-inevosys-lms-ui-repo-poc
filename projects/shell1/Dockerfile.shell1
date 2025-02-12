@@ -18,19 +18,19 @@ RUN npm install -g @angular/cli@18
 # Build the shared library first
 RUN npm run build -- --project=shared --configuration production
 
-# Build the specific microfrontend (shell)
-RUN npm run build -- --project=shell --configuration production
+# Build the specific microfrontend (shell1)
+RUN npm run build -- --project=shell1 --configuration production
 
 # Stage 2: Serve the application using Nginx
 FROM nginx:alpine AS production-stage
 
-COPY ./projects/shell/nginx.conf /etc/nginx/conf.d/default.conf
+COPY ./projects/shell1/nginx.conf /etc/nginx/conf.d/default.conf
 
 
-# Copy the built shell microfrontend to the Nginx HTML directory
-COPY --from=build-stage /app/dist/shell /usr/share/nginx/html
+# Copy the built shell1 microfrontend to the Nginx HTML directory
+COPY --from=build-stage /app/dist/shell1 /usr/share/nginx/html
 
-# Expose the port for this microfrontend (e.g., 4201 for shell)
+# Expose the port for this microfrontend (e.g., 4201 for shell1)
 EXPOSE 4200
 
 # Start Nginx

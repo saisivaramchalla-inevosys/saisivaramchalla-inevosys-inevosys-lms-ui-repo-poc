@@ -10,7 +10,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './app.component.scss' // Path to the SCSS stylesheet
 })
 export class AppComponent {
-  title = 'admin'; // Title property for the component
+  title = 'admin1'; // Title property for the component
 
   constructor() {
     // Constructor for the component

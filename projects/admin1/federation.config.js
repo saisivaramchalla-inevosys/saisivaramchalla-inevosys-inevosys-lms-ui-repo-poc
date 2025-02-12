@@ -5,12 +5,12 @@ const { withNativeFederation, shareAll } = require('@angular-architects/native-f
 module.exports = withNativeFederation({
 
   // Name of the module federation
-  name: 'admin',
+  name: 'admin1',
 
   // Expose components and routes for other modules to consume
   exposes: {
-    './AdminComponent': './projects/admin/src/app/app.component.ts',
-    './routes': 'projects/admin/src/app/app.routes.ts',
+    './AdminComponent': './projects/admin1/src/app/app.component.ts',
+    './routes': 'projects/admin1/src/app/app.routes.ts',
   },
 
   // Share all dependencies with singleton and strict versioning

@@ -3,130 +3,6 @@
 	"version": 1,
 	"newProjectRoot": "projects",
 	"projects": {
-		"shell": {
-			"projectType": "application",
-			"schematics": {
-				"@schematics/angular:component": {
-					"style": "scss"
-				}
-			},
-			"root": "projects/shell",
-			"sourceRoot": "projects/shell/src",
-			"prefix": "app",
-			"architect": {
-				"build": {
-					"builder": "@angular-architects/native-federation:build",
-					"options": {},
-					"configurations": {
-						"production": {
-							"target": "shell:esbuild:production"
-						},
-						"development": {
-							"target": "shell:esbuild:development",
-							"dev": true
-						}
-					},
-					"defaultConfiguration": "production"
-				},
-				"serve": {
-					"builder": "@angular-architects/native-federation:build",
-					"options": {
-						"target": "shell:serve-original:development",
-						"rebuildDelay": 0,
-						"dev": true,
-						"port": 0
-					}
-				},
-				"extract-i18n": {
-					"builder": "@angular-devkit/build-angular:extract-i18n"
-				},
-				"test": {
-					"builder": "@angular-devkit/build-angular:karma",
-					"options": {
-						"polyfills": [
-							"zone.js",
-							"zone.js/testing"
-						],
-						"tsConfig": "projects/shell/tsconfig.spec.json",
-						"inlineStyleLanguage": "scss",
-						"assets": [
-							{
-								"glob": "**/*",
-								"input": "projects/shared/src/lib/assets",
-								"output": "/assets/"
-							}
-						],
-						"styles": [
-							"projects/shell/src/styles.scss"
-						],
-						"scripts": []
-					}
-				},
-				"esbuild": {
-					"builder": "@angular-devkit/build-angular:application",
-					"options": {
-						"outputPath": "dist/shell",
-						"index": "projects/shell/src/index.html",
-						"browser": "projects/shell/src/main.ts",
-						"polyfills": [
-							"zone.js",
-							"es-module-shims"
-						],
-						"tsConfig": "projects/shell/tsconfig.app.json",
-						"inlineStyleLanguage": "scss",
-						"assets": [
-							{
-								"glob": "**/*",
-								"input": "projects/shared/src/lib/assets",
-								"output": "/assets/"
-							}
-						],
-						"styles": [
-							"projects/shell/src/styles.scss"
-						],
-						"scripts": []
-					},
-					"configurations": {
-						"production": {
-							"budgets": [
-								{
-									"type": "initial",
-									"maximumWarning": "500kB",
-									"maximumError": "1MB"
-								},
-								{
-									"type": "anyComponentStyle",
-									"maximumWarning": "2kB",
-									"maximumError": "4kB"
-								}
-							],
-							"outputHashing": "all"
-						},
-						"development": {
-							"optimization": false,
-							"extractLicenses": false,
-							"sourceMap": true
-						}
-					},
-					"defaultConfiguration": "production"
-				},
-				"serve-original": {
-					"builder": "@angular-devkit/build-angular:dev-server",
-					"configurations": {
-						"production": {
-							"buildTarget": "shell:esbuild:production"
-						},
-						"development": {
-							"buildTarget": "shell:esbuild:development"
-						}
-					},
-					"defaultConfiguration": "development",
-					"options": {
-						"port": 4200
-					}
-				}
-			}
-		},
 		"mfe1": {
 			"projectType": "application",
 			"schematics": {
@@ -251,15 +127,15 @@
 				}
 			}
 		},
-		"admin": {
+		"admin1": {
 			"projectType": "application",
 			"schematics": {
 				"@schematics/angular:component": {
 					"style": "scss"
 				}
 			},
-			"root": "projects/admin",
-			"sourceRoot": "projects/admin/src",
+			"root": "projects/admin1",
+			"sourceRoot": "projects/admin1/src",
 			"prefix": "app",
 			"architect": {
 				"build": {
@@ -267,10 +143,10 @@
 					"options": {},
 					"configurations": {
 						"production": {
-							"target": "admin:esbuild:production"
+							"target": "admin1:esbuild:production"
 						},
 						"development": {
-							"target": "admin:esbuild:development",
+							"target": "admin1:esbuild:development",
 							"dev": true
 						}
 					},
@@ -279,7 +155,7 @@
 				"serve": {
 					"builder": "@angular-architects/native-federation:build",
 					"options": {
-						"target": "admin:serve-original:development",
+						"target": "admin1:serve-original:development",
 						"rebuildDelay": 0,
 						"dev": true,
 						"port": 0
@@ -295,7 +171,7 @@
 							"zone.js",
 							"zone.js/testing"
 						],
-						"tsConfig": "projects/admin/tsconfig.spec.json",
+						"tsConfig": "projects/admin1/tsconfig.spec.json",
 						"inlineStyleLanguage": "scss",
 						"assets": [
 							{
@@ -305,7 +181,7 @@
 							}
 						],
 						"styles": [
-							"projects/admin/src/styles.scss"
+							"projects/admin1/src/styles.scss"
 						],
 						"scripts": []
 					}
@@ -313,14 +189,14 @@
 				"esbuild": {
 					"builder": "@angular-devkit/build-angular:application",
 					"options": {
-						"outputPath": "dist/admin",
-						"index": "projects/admin/src/index.html",
-						"browser": "projects/admin/src/main.ts",
+						"outputPath": "dist/admin1",
+						"index": "projects/admin1/src/index.html",
+						"browser": "projects/admin1/src/main.ts",
 						"polyfills": [
 							"zone.js",
 							"es-module-shims"
 						],
-						"tsConfig": "projects/admin/tsconfig.app.json",
+						"tsConfig": "projects/admin1/tsconfig.app.json",
 						"inlineStyleLanguage": "scss",
 						"assets": [
 							{
@@ -330,7 +206,7 @@
 							}
 						],
 						"styles": [
-							"projects/admin/src/styles.scss"
+							"projects/admin1/src/styles.scss"
 						],
 						"scripts": []
 					},
@@ -362,10 +238,10 @@
 					"builder": "@angular-devkit/build-angular:dev-server",
 					"configurations": {
 						"production": {
-							"buildTarget": "admin:esbuild:production"
+							"buildTarget": "admin1:esbuild:production"
 						},
 						"development": {
-							"buildTarget": "admin:esbuild:development"
+							"buildTarget": "admin1:esbuild:development"
 						}
 					},
 					"defaultConfiguration": "development",
@@ -374,42 +250,164 @@
 					}
 				}
 			}
-    },
-    "shared": {
-      "projectType": "library",
-      "root": "projects/shared",
-      "sourceRoot": "projects/shared/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "project": "projects/shared/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/shared/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/shared/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "tsConfig": "projects/shared/tsconfig.spec.json",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ]
-          }
-        }
-      }
-    }
-  },
-  "cli": {
-    "analytics": false
-  }
+		},
+		"shared": {
+			"projectType": "library",
+			"root": "projects/shared",
+			"sourceRoot": "projects/shared/src",
+			"prefix": "lib",
+			"architect": {
+				"build": {
+					"builder": "@angular-devkit/build-angular:ng-packagr",
+					"options": {
+						"project": "projects/shared/ng-package.json"
+					},
+					"configurations": {
+						"production": {
+							"tsConfig": "projects/shared/tsconfig.lib.prod.json"
+						},
+						"development": {
+							"tsConfig": "projects/shared/tsconfig.lib.json"
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"tsConfig": "projects/shared/tsconfig.spec.json",
+						"polyfills": [
+							"zone.js",
+							"zone.js/testing"
+						]
+					}
+				}
+			}
+		},
+		"shell1": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "scss"
+				}
+			},
+			"root": "projects/shell1",
+			"sourceRoot": "projects/shell1/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "@angular-architects/native-federation:build",
+					"options": {},
+					"configurations": {
+						"production": {
+							"target": "shell1:esbuild:production"
+						},
+						"development": {
+							"target": "shell1:esbuild:development",
+							"dev": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "@angular-architects/native-federation:build",
+					"options": {
+						"target": "shell1:serve-original:development",
+						"rebuildDelay": 0,
+						"dev": true,
+						"port": 0
+					}
+				},
+				"extract-i18n": {
+					"builder": "@angular-devkit/build-angular:extract-i18n"
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"polyfills": [
+							"zone.js",
+							"zone.js/testing"
+						],
+						"tsConfig": "projects/shell1/tsconfig.spec.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							{
+								"glob": "**/*",
+								"input": "projects/shell1/public"
+							}
+						],
+						"styles": [
+							"projects/shell1/src/styles.scss"
+						],
+						"scripts": []
+					}
+				},
+				"esbuild": {
+					"builder": "@angular-devkit/build-angular:application",
+					"options": {
+						"outputPath": "dist/shell1",
+						"index": "projects/shell1/src/index.html",
+						"browser": "projects/shell1/src/main.ts",
+						"polyfills": [
+							"zone.js",
+							"es-module-shims"
+						],
+						"tsConfig": "projects/shell1/tsconfig.app.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							{
+								"glob": "**/*",
+								"input": "projects/shell1/public"
+							}
+						],
+						"styles": [
+							"projects/shell1/src/styles.scss"
+						],
+						"scripts": []
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kB",
+									"maximumError": "1MB"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kB",
+									"maximumError": "4kB"
+								}
+							],
+							"outputHashing": "all"
+						},
+						"development": {
+							"optimization": false,
+							"extractLicenses": false,
+							"sourceMap": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve-original": {
+					"builder": "@angular-devkit/build-angular:dev-server",
+					"configurations": {
+						"production": {
+							"buildTarget": "shell1:esbuild:production"
+						},
+						"development": {
+							"buildTarget": "shell1:esbuild:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4200
+					}
+				}
+			}
+		}
+	},
+	"cli": {
+		"analytics": false
+	}
 }
