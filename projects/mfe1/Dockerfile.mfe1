@@ -16,7 +16,7 @@ COPY . .
 RUN npm install -g @angular/cli@18
 
 # Build the specific microfrontend (mfe1)
-RUN npm run build -- --project=mfe1 --output-path=dist/mfe1 --configuration production
+RUN npm run build -- --project=mfe1 --configuration production
 
 # Stage 2: Serve the application using Nginx
 FROM nginx:alpine AS production-stage
