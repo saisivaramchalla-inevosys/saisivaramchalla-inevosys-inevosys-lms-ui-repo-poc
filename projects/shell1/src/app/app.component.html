@@ -1,67 +1,60 @@
-<!-- <h1 class="bg-sky-50">
-  shell
-</h1>
-<button [routerLink]="['/mfe']" >Mfe1</button>
-<button [routerLink]="['/admin']" >Admin</button>
-<button (click)="logout()" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Logout</button>
-<router-outlet></router-outlet> -->
-
+<!-- Button to toggle the sidebar -->
 <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-100 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
   <span class="sr-only">Open sidebar</span>
-  <svg class="w-6 h-6"  fill="currentColor" viewBox="0 0 20 20" >
-  <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
+  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+    <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
   </svg>
 </button>
 
+<!-- Sidebar component -->
 <aside id="default-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
   <div class="h-full px-3 py-4 overflow-y-auto bg-blue-50 text-gray-500 blue:bg-gray-800">
-     <ul class="space-y-2 font-medium">
+    <ul class="space-y-2 font-medium">
+      <!-- Admin link -->
       <li>
-        <a [routerLink]="['admin']" 
-           class="flex items-center p-2 text-gray-900 rounded-lg dark:text-gray hover:text-black dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 group">
+        <a [routerLink]="['admin']" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-gray hover:text-black dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 group">
           <span class="ms-3">Admin(MFE - 1)</span>
         </a>
       </li>
+      <!-- Profile Management link -->
       <li>
-        <a [routerLink]="['admin/profile']"
-           class="flex items-center p-2 text-gray-900 rounded-lg dark:text-gray hover:text-black dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 group">
+        <a [routerLink]="['admin/profile']" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-gray hover:text-black dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 group">
           <span class="ms-3">profile-Management</span>
         </a>
       </li>
+      <!-- User Management link -->
       <li>
-        <a [routerLink]="['admin/user']"
-           class="flex items-center p-2 text-gray-900 rounded-lg dark:text-gray hover:text-black dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 group">
+        <a [routerLink]="['admin/user']" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-gray hover:text-black dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 group">
           <span class="ms-3">User-Management</span>
         </a>
       </li>
+      <!-- MFE1 link -->
       <li>
-        <a  [routerLink]="['/mfe']"
-           class="flex items-center p-2 text-gray-900 rounded-lg dark:text-gray hover:text-black dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 group">
+        <a [routerLink]="['/mfe']" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-gray hover:text-black dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 group">
           <span class="ms-3">Mfe1(MFE - 2)</span>
         </a>
       </li>
+      <!-- Flight Search link -->
       <li>
-        <a  [routerLink]="['mfe/flightsearch']"
-           class="flex items-center p-2 text-gray-900 rounded-lg dark:text-gray hover:text-black dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 group">
+        <a [routerLink]="['mfe/flightsearch']" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-gray hover:text-black dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 group">
           <span class="ms-3">Flight-Search</span>
         </a>
       </li>
+      <!-- Holiday link -->
       <li>
-        <a  [routerLink]="['mfe/holiday']"
-           class="flex items-center p-2 text-gray-900 rounded-lg dark:text-gray hover:text-black dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 group">
+        <a [routerLink]="['mfe/holiday']" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-gray hover:text-black dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 group">
           <span class="ms-3">Holiday</span>
         </a>
       </li>
-      
-      
-        
-     </ul>
+    </ul>
   </div>
 </aside>
 
+<!-- Main content area -->
 <div class="p-4 sm:ml-64">
   <div class="p-4">
-     <div class="grid grid-cols-3 gap-4 mb-4">
-      <router-outlet></router-outlet> 
+    <div class="grid grid-cols-3 gap-4 mb-4">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>

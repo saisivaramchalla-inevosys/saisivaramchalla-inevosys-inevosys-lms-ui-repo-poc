@@ -1,70 +1,55 @@
 import {
-  APP_INITIALIZER,
-  ApplicationConfig,
-  importProvidersFrom,
-  isDevMode,
-  provideZoneChangeDetection,
+  APP_INITIALIZER, // Token to provide a function to be executed during application initialization
+  ApplicationConfig, // Interface for application configuration
+  importProvidersFrom, // Function to import providers from another module
+  isDevMode, // Function to check if the application is in development mode
+  provideZoneChangeDetection, // Function to provide zone change detection configuration
 } from '@angular/core';
-import { provideRouter } from '@angular/router';
-import { KeycloakService } from 'keycloak-angular';
-import { routes } from './app.routes';
+import { provideRouter } from '@angular/router'; // Function to provide router configuration
+import { KeycloakService } from 'keycloak-angular'; // Keycloak service for Angular
+import { routes } from './app.routes'; // Application routes
 
-// import { provideHttpClient,HttpClient  } from '@angular/common/http';
-// import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-// import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-// import { MultiTranslateLoader } from '../../../shared/src/lib/service/multi-translate-loader.service';
-
-// export function httpLoaderFactory(http: HttpClient) {
-//   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-// }
+// Function to initialize Keycloak
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
     keycloak
       .init({
         config: {
-          url: 'http://localhost:8080',
-          realm: 'quick_realm',
-          clientId: 'quick_client',
+          url: 'http://localhost:8080', // Keycloak server URL
+          realm: 'quick_realm', // Keycloak realm
+          clientId: 'quick_client', // Keycloak client ID
         },
         initOptions: {
-          onLoad: 'login-required',
-          checkLoginIframe: false,
+          onLoad: 'login-required', // Require login on load
+          checkLoginIframe: false, // Disable login iframe check
         },
-        enableBearerInterceptor: true,
+        enableBearerInterceptor: true, // Enable bearer token interceptor
       })
       .then(async (authenticated) => {
         if (authenticated) {
+          // Store token in local storage if authenticated
           localStorage.setItem('Token', await keycloak.getToken());
         } else {
-          console.warn('User not authenticated');
+          console.warn('User not authenticated'); // Log warning if not authenticated
         }
       })
       .catch((error) => {
-        console.error('Keycloak initialization failed:', error);
+        console.error('Keycloak initialization failed:', error); // Log error if initialization fails
       });
 }
 
+// Application configuration
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes),
+    provideZoneChangeDetection({ eventCoalescing: true }), // Provide zone change detection with event coalescing
+    provideRouter(routes), // Provide router with application routes
     
     {
-      provide: APP_INITIALIZER,
-      useFactory: initializeKeycloak,
-      multi: true,
-      deps: [KeycloakService],
+      provide: APP_INITIALIZER, // Provide APP_INITIALIZER token
+      useFactory: initializeKeycloak, // Use initializeKeycloak function as factory
+      multi: true, // Allow multiple APP_INITIALIZER providers
+      deps: [KeycloakService], // Dependencies for the factory function
     },
-    KeycloakService,
-    // provideHttpClient(), // Provide HttpClient
-    //     importProvidersFrom(
-    //       TranslateModule.forRoot({
-    //         loader: {
-    //           provide: TranslateLoader,
-    //           useFactory: httpLoaderFactory,
-    //           deps: [HttpClient],
-    //         },
-    //       })
-    //     ),
+    KeycloakService, // Provide KeycloakService
   ],
 };
