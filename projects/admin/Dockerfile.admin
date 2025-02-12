@@ -4,7 +4,7 @@ FROM node:18 AS build-stage
 # Set working directory to the monorepo root
 WORKDIR /app
 
-# Copy package.json and package-lock.json to the containers
+# Copy package.json and package-lock.json to the container
 COPY package.json package-lock.json ./
 
 # Install dependencies
