@@ -104,7 +104,7 @@ jobs:
           cache-to: type=gha,mode=max
 
       - name: Docker Scout CVEs
-        uses: docker/scout-action@v1.16.1
+        uses: docker/scout-action@v0.18.1
         with:
           command: cves
           image: ghcr.io/${{ env.REPO_OWNER }}/${{ matrix.microfrontend }}-ui:${{ env.VERSION }}
