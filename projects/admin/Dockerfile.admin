@@ -16,7 +16,7 @@ COPY . .
 RUN npm install -g @angular/cli@18
 
 # Build the specific microfrontend (admin)
-RUN npm run build -- --project=admin --output-path=dist/admin --configuration production
+RUN npm run build -- --project=admin --outputPath=dist/admin --configuration production
 
 # Stage 2: Serve the application using Nginx
 FROM nginx:alpine AS production-stage
