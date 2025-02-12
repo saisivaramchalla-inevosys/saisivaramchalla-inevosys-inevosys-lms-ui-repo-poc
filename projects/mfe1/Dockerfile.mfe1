@@ -15,6 +15,9 @@ COPY . .
 
 RUN npm install -g @angular/cli@18
 
+# Build the shared library first
+RUN npm run build -- --project=shared --configuration production
+
 # Build the specific microfrontend (mfe1)
 RUN npm run build -- --project=mfe1 --configuration production
 
