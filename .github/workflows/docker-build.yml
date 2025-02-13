@@ -35,7 +35,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}  # Use the PAT stored in GitHub Secrets
+          password: ${{ secrets.GITHUB_TOKEN }}  # Use the PAT stored in GitHub Secret
 
       - name: Preprocess repository owner to lowercase
         id: preprocess
