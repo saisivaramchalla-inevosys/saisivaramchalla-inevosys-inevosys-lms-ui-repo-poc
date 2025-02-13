@@ -1,3 +1,4 @@
+
 # LMS UI Repo POC
 
 ## Setup Instructions
@@ -6,7 +7,7 @@ This guide explains the steps to set up the LMS UI repository using Docker conta
 
 ### Step 1: Download Latest Versions of Microfrontends
 
-To download the latest versions of `shell1`, `admin1`, and `mfe1` microfrontends, use the following Docker commands. Ensure you replace `xx` with the appropriate version number that you pull from the registry. These versions can be found in packages section.
+To download the latest versions of `shell1`, `admin1`, and `mfe1` microfrontends, use the following Docker commands. Ensure you replace `xx` with the appropriate version number that you pull from the registry.
 
 - **Download `shell1-ui`**:
   
@@ -52,11 +53,64 @@ After downloading the latest versions, you can run the Docker containers for eac
 
 If Keycloak is not already set up, you can follow the instructions from the [inevosys-lms-cp-setup repository](https://github.com/inevosys/inevosys-lms-cp-setup) to run Keycloak in Docker on port `8080` for authentication.
 
-```bash
-docker run -d -p 8080:8080 --name keycloak jboss/keycloak
-```
 
-### Step 4: Access Microfrontends
+
+### Step 4: Configure Keycloak
+
+After running Keycloak, access it via [http://localhost:8080](http://localhost:8080) using the admin credentials (`admin` as both username and password).
+
+![Logging in](./doc_resource/client-img-0.png)
+
+
+#### 4.1 Create a New Realm
+
+1. **Log in to Keycloak** at [http://localhost:8080](http://localhost:8080) using the credentials `admin/admin`.
+2. Go to the **Master** realm and click on **Add realm**.
+3. Enter the name of the new realm as `quick_realm` and save.
+
+![Creating Realm](./doc_resource/client-img-1.png)
+
+#### 4.2 Create a New Client
+
+1. Under the `quick_realm`, click on **Clients** in the left sidebar and then **Create**.
+2. Enter the client ID as `quick_client`.
+3. Set the **Client Protocol** to `openid-connect` and save.
+
+![Creating Client](./doc_resource/client-img-2.png)
+
+
+#### 4.3 Configure Redirect URL and Web Origins
+
+1. In the `quick_client` settings, scroll to the **Valid Redirect URIs** field and enter:
+   
+   ```plaintext
+   http://localhost:4200/*
+   ```
+
+2. Under **Web Origins**, enter:
+   
+   ```plaintext
+   http://localhost:4200
+   ```
+
+![Configuring Redirect URL and Web Origins](./doc_resource/client-img-3.png)
+
+#### 4.4 Set Client Credentials
+
+1. In the `Credentials` tab, set the **Username** and **Password** of your choice.
+   
+   - Username: `your_username`
+   - Password: `your_password`
+
+![Setting Credentials 1](./doc_resource/client-img-4.png)
+
+![Setting Credentials 2](./doc_resource/client-img-5.png)
+
+![Setting Credentials 3](./doc_resource/client-img-6.png)
+
+---
+
+### Step 5: Access Microfrontends
 
 Once the containers are up and running, you can access each microfrontend by visiting the following URLs:
 
