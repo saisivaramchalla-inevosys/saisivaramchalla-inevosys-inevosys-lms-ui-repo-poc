@@ -27,8 +27,9 @@ FROM nginx:alpine AS production-stage
 COPY ./projects/mfe1/nginx.conf /etc/nginx/conf.d/default.conf
 
 
-# Copy the built mfe1 microfrontend to the Nginx HTML directory
-COPY --from=build-stage /app/dist/mfe1 /usr/share/nginx/html
+# Copy the built mfe1 microfrontend from the browser folder to the Nginx HTML directory
+COPY --from=build-stage /app/dist/mfe1/browser/. /usr/share/nginx/html
+
 
 # Expose the port for this microfrontend (e.g., 4201 for mfe1)
 EXPOSE 5000
