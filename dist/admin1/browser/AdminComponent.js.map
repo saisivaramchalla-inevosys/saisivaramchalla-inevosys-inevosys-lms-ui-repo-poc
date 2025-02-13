@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../projects/admin1/src/app/app.component.ts", "../../../projects/admin1/src/app/app.component.html"],
+  "sourcesContent": ["import { Component, inject } from '@angular/core';\r\nimport { RouterOutlet } from '@angular/router';\r\nimport { RouterLink } from '@angular/router';\r\n\r\n@Component({\r\n  selector: 'app-root', // The selector for the root component\r\n  standalone: true, // Indicates that this component is standalone\r\n  imports: [RouterOutlet, RouterLink], // Modules to be imported\r\n  templateUrl: './app.component.html', // Path to the HTML template\r\n  styleUrl: './app.component.scss' // Path to the SCSS stylesheet\r\n})\r\nexport class AppComponent {\r\n  title = 'admin1'; // Title property for the component\r\n\r\n  constructor() {\r\n    // Constructor for the component\r\n  }\r\n}\r\n", "<!-- Admin Section -->\r\n<h2>Admin</h2>\r\n<!-- Router Outlet for Admin Module -->\r\n<router-outlet></router-outlet>\r\n\r\n"],
+  "mappings": ";AAAA,SAAS,iBAAyB;AAClC,SAAS,oBAAoB;AAC7B,SAAS,kBAAkB;;AASrB,IAAO,eAAP,MAAO,cAAY;EACvB,QAAQ;;EAER,cAAA;EAEA;;qCALW,eAAY;EAAA;4EAAZ,eAAY,WAAA,CAAA,CAAA,UAAA,CAAA,GAAA,YAAA,MAAA,UAAA,CAAA,gCAAA,GAAA,OAAA,GAAA,MAAA,GAAA,UAAA,SAAA,sBAAA,IAAA,KAAA;AAAA,QAAA,KAAA,GAAA;ACVzB,MAAA,4BAAA,GAAA,IAAA;AAAI,MAAA,oBAAA,GAAA,OAAA;AAAK,MAAA,0BAAA;AAET,MAAA,uBAAA,GAAA,eAAA;;oBDIY,YAAY,EAAA,CAAA;;;gFAIX,cAAY,EAAA,WAAA,gBAAA,UAAA,4CAAA,YAAA,GAAA,CAAA;AAAA,GAAA;",
+  "names": []
+}

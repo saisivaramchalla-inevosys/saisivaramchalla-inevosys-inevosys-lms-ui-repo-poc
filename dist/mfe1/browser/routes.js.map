@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../projects/mfe1/src/app/app.routes.ts"],
+  "sourcesContent": ["import { Routes } from '@angular/router';\r\nimport { AppComponent } from './app.component';\r\n\r\n// Define the routes for the application\r\nexport const routes: Routes = [\r\n    {\r\n        // Route for the flight search component\r\n        path: 'flightsearch',\r\n        loadComponent: () => import('./components/flight-search/flight-search.component').then((c) => c.FlightSearchComponent)\r\n    },\r\n    {\r\n        // Route for the flight packages component\r\n        path: 'holiday',\r\n        loadComponent: () => import('./components/flight-packages/flight-packages.component').then((c) => c.FlightPackagesComponent)\r\n    }\r\n];\r\n"],
+  "mappings": ";AAIO,IAAM,SAAiB;EAC1B;;IAEI,MAAM;IACN,eAAe,MAAM,OAAO,uCAAoD,EAAE,KAAK,CAAC,MAAM,EAAE,qBAAqB;;EAEzH;;IAEI,MAAM;IACN,eAAe,MAAM,OAAO,yCAAwD,EAAE,KAAK,CAAC,MAAM,EAAE,uBAAuB;;;",
+  "names": []
+}

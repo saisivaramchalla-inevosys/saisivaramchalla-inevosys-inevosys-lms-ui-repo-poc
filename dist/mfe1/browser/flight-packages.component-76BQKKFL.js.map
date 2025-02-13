@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../projects/mfe1/src/app/components/flight-packages/flight-packages.component.ts", "../../../projects/mfe1/src/app/components/flight-packages/flight-packages.component.html"],
+  "sourcesContent": ["import { Component } from '@angular/core';\r\n\r\n// Decorator that marks a class as an Angular component and provides configuration metadata\r\n@Component({\r\n  selector: 'app-flight-packages', // The CSS selector that identifies this component in a template\r\n  standalone: true, // Indicates that this component is a standalone component\r\n  imports: [], // List of modules or components to import\r\n  templateUrl: './flight-packages.component.html', // Path to the HTML template file\r\n  styleUrl: './flight-packages.component.scss' // Path to the SCSS stylesheet file\r\n})\r\nexport class FlightPackagesComponent {\r\n  // Component logic goes here\r\n}\r\n", "<p>flight-packages works!</p>\r\n"],
+  "mappings": ";AAAA,SAAS,iBAAiB;;AAUpB,IAAO,0BAAP,MAAO,yBAAuB;;qCAAvB,0BAAuB;EAAA;4EAAvB,0BAAuB,WAAA,CAAA,CAAA,qBAAA,CAAA,GAAA,YAAA,MAAA,UAAA,CAAA,gCAAA,GAAA,OAAA,GAAA,MAAA,GAAA,UAAA,SAAA,iCAAA,IAAA,KAAA;AAAA,QAAA,KAAA,GAAA;ACVpC,MAAA,4BAAA,GAAA,GAAA;AAAG,MAAA,oBAAA,GAAA,wBAAA;AAAsB,MAAA,0BAAA;;;;;gFDUZ,yBAAuB,EAAA,WAAA,2BAAA,UAAA,iFAAA,YAAA,GAAA,CAAA;AAAA,GAAA;",
+  "names": []
+}

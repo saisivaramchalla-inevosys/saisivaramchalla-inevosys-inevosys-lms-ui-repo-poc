@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../projects/admin1/src/app/components/services/state-management.service.ts"],
+  "sourcesContent": ["import { Injectable } from '@angular/core';\r\nimport { BehaviorSubject, Observable } from 'rxjs';\r\n\r\n@Injectable({\r\n  providedIn: 'root'\r\n})\r\nexport class StateManagementService {\r\n\r\n  constructor() { }\r\n\r\n  // BehaviorSubject to hold the list of users\r\n  private usersSubject = new BehaviorSubject<any[]>([]);\r\n\r\n  // Observable to expose the list of users\r\n  users$ = this.usersSubject.asObservable();\r\n\r\n  // Method to add a new user to the list\r\n  addUser(user: any) {\r\n    // Get the current list of users\r\n    const currentUsers = this.usersSubject.value;\r\n    // Add the new user to the list and emit the updated list\r\n    this.usersSubject.next([...currentUsers, user]);\r\n  }\r\n}\r\n"],
+  "mappings": ";AAAA,SAAS,kBAAkB;AAC3B,SAAS,uBAAmC;;AAKtC,IAAO,yBAAP,MAAO,wBAAsB;EAEjC,cAAA;EAAgB;;EAGR,eAAe,IAAI,gBAAuB,CAAA,CAAE;;EAGpD,SAAS,KAAK,aAAa,aAAY;;EAGvC,QAAQ,MAAS;AAEf,UAAM,eAAe,KAAK,aAAa;AAEvC,SAAK,aAAa,KAAK,CAAC,GAAG,cAAc,IAAI,CAAC;EAChD;;qCAhBW,yBAAsB;EAAA;+EAAtB,yBAAsB,SAAtB,wBAAsB,WAAA,YAFrB,OAAM,CAAA;;",
+  "names": []
+}

@@ -1,0 +1,30 @@
+{
+  "imports": {
+    "@angular/animations": "_angular_animations.oNf0lQfFg_-dev.js",
+    "@angular/animations/browser": "_angular_animations_browser.XgrRu9P0LO-dev.js",
+    "@angular/common": "_angular_common.ezNC6te18u-dev.js",
+    "@angular/common/http": "_angular_common_http.Dyt5hEh9JV-dev.js",
+    "@angular/compiler": "_angular_compiler.VAtd5faYZf-dev.js",
+    "@angular/core": "_angular_core.jQz8pJFirl-dev.js",
+    "@angular/core/event-dispatch-contract.min.js": "_angular_core_event_dispatch_contract_min_js.Lyy7q7eRdE-dev.js",
+    "@angular/core/primitives/event-dispatch": "_angular_core_primitives_event_dispatch.-TwmuBzYik-dev.js",
+    "@angular/core/primitives/signals": "_angular_core_primitives_signals.Pk7oDRZClk-dev.js",
+    "@angular/core/rxjs-interop": "_angular_core_rxjs_interop.IyiNq2ThdD-dev.js",
+    "@angular/forms": "_angular_forms.L-IllLDqr2-dev.js",
+    "@angular/platform-browser": "_angular_platform_browser.m9fAmfOiY3-dev.js",
+    "@angular/platform-browser/animations": "_angular_platform_browser_animations.F2D3GlnPpo-dev.js",
+    "@angular/platform-browser/animations/async": "_angular_platform_browser_animations_async.lqc8vBuiCn-dev.js",
+    "@angular/platform-browser-dynamic": "_angular_platform_browser_dynamic.j9-mBymoHw-dev.js",
+    "@angular/router": "_angular_router.QpJfive7SR-dev.js",
+    "@ngx-translate/core": "_ngx_translate_core.AauFtBVLPa-dev.js",
+    "@ngx-translate/http-loader": "_ngx_translate_http_loader.b2ZUCvVVDZ-dev.js",
+    "flowbite": "flowbite.pyRAX933ME-dev.js",
+    "postcss": "postcss.CxAe1XFLLp-dev.js",
+    "keycloak-angular": "keycloak_angular.7S0aENq0R8-dev.js",
+    "keycloak-js": "keycloak_js.4CfykVRnyp-dev.js",
+    "rxjs": "rxjs.8tzXpPgOPH-dev.js",
+    "rxjs/operators": "rxjs_operators.0ikuhW_xU4-dev.js",
+    "tslib": "tslib.IguVOBBJCv-dev.js",
+    "shared": "shared.js"
+  }
+}

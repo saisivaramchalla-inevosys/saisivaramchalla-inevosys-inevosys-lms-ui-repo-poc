@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../projects/mfe1/src/app/components/flight-search/flight-search.component.ts", "../../../projects/mfe1/src/app/components/flight-search/flight-search.component.html"],
+  "sourcesContent": ["import { Component } from '@angular/core';\r\n\r\n// Component decorator to define metadata for the FlightSearchComponent\r\n@Component({\r\n  selector: 'app-flight-search', // The selector used to identify this component in a template\r\n  standalone: true, // Indicates that this component is standalone and does not require a module\r\n  imports: [], // List of modules to import for this component\r\n  templateUrl: './flight-search.component.html', // Path to the HTML template for this component\r\n  styleUrl: './flight-search.component.scss' // Path to the SCSS stylesheet for this component\r\n})\r\nexport class FlightSearchComponent {\r\n  // The class definition for the FlightSearchComponent\r\n}\r\n", "<!-- This is the flight search component -->\r\n<p>flight-search works!</p>\r\n"],
+  "mappings": ";AAAA,SAAS,iBAAiB;;AAUpB,IAAO,wBAAP,MAAO,uBAAqB;;qCAArB,wBAAqB;EAAA;4EAArB,wBAAqB,WAAA,CAAA,CAAA,mBAAA,CAAA,GAAA,YAAA,MAAA,UAAA,CAAA,gCAAA,GAAA,OAAA,GAAA,MAAA,GAAA,UAAA,SAAA,+BAAA,IAAA,KAAA;AAAA,QAAA,KAAA,GAAA;ACTlC,MAAA,4BAAA,GAAA,GAAA;AAAG,MAAA,oBAAA,GAAA,sBAAA;AAAoB,MAAA,0BAAA;;;;;gFDSV,uBAAqB,EAAA,WAAA,yBAAA,UAAA,6EAAA,YAAA,GAAA,CAAA;AAAA,GAAA;",
+  "names": []
+}

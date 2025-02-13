@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../projects/admin1/src/app/app.routes.ts"],
+  "sourcesContent": ["import { Routes } from '@angular/router';\r\n\r\n// Define the routes for the application\r\nexport const routes: Routes = [\r\n    {\r\n        // Route for profile management\r\n        path: 'profile',\r\n        loadComponent: () => import('./components/profile-management/profile-management.component').then((c) => c.ProfileManagementComponent)\r\n    },\r\n    {\r\n        // Route for user management\r\n        path: 'user',\r\n        loadComponent: () => import('./components/user-management/user-management.component').then((c) => c.UserManagementComponent)\r\n    }\r\n];\r\n"],
+  "mappings": ";AAGO,IAAM,SAAiB;EAC1B;;IAEI,MAAM;IACN,eAAe,MAAM,OAAO,4CAA8D,EAAE,KAAK,CAAC,MAAM,EAAE,0BAA0B;;EAExI;;IAEI,MAAM;IACN,eAAe,MAAM,OAAO,yCAAwD,EAAE,KAAK,CAAC,MAAM,EAAE,uBAAuB;;;",
+  "names": []
+}
