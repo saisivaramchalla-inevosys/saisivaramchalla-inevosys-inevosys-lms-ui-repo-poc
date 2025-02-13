@@ -7,7 +7,7 @@ This guide explains the steps to set up the LMS UI repository using Docker conta
 
 ### Step 1: Download Latest Versions of Microfrontends
 
-To download the latest versions of `shell1`, `admin1`, and `mfe1` microfrontends, use the following Docker commands. Ensure you replace `xx` with the appropriate version number that you pull from the registry.
+To download the latest versions of `shell1`, `admin1`, and `mfe1` microfrontends, use the following Docker commands. Ensure you replace `xx` with the appropriate version number that you pull from the registry. You can download shell1, admin1, mfe1 or find versions in packages section.
 
 - **Download `shell1-ui`**:
   
