@@ -12,19 +12,19 @@ To download the latest versions of `shell1`, `admin1`, and `mfe1` microfrontends
 - **Download `shell1-ui`**:
   
   ```bash
-  docker pull ghcr.io/saisivaramchalla-inevosys/shell1-ui:vxx
+  docker pull ghcr.io/inevosys/shell1-ui:vxx
   ```
 
 - **Download `admin1-ui`**:
   
   ```bash
-  docker pull ghcr.io/saisivaramchalla-inevosys/admin1-ui:vxx
+  docker pull ghcr.io/inevosys/admin1-ui:vxx
   ```
 
 - **Download `mfe1-ui`**:
   
   ```bash
-  docker pull ghcr.io/saisivaramchalla-inevosys/mfe1-ui:vxx
+  docker pull ghcr.io/inevosys/mfe1-ui:vxx
   ```
 
 ### Step 2: Run Docker Containers
@@ -34,19 +34,19 @@ After downloading the latest versions, you can run the Docker containers for eac
 - **Run `shell1-ui` on port 4200**:
   
   ```bash
-  docker run -d -p 4200:80 --name shell1-ui ghcr.io/saisivaramchalla-inevosys/shell1-ui:vxx
+  docker run -d -p 4200:80 --name shell1-ui ghcr.io/inevosys/shell1-ui:vxx
   ```
 
 - **Run `admin1-ui` on port 5500**:
   
   ```bash
-  docker run -d -p 5500:80 --name admin1-ui ghcr.io/saisivaramchalla-inevosys/admin1-ui:vxx
+  docker run -d -p 5500:80 --name admin1-ui ghcr.io/inevosys/admin1-ui:vxx
   ```
 
 - **Run `mfe1-ui` on port 5000**:
   
   ```bash
-  docker run -d -p 5000:80 --name mfe1-ui ghcr.io/saisivaramchalla-inevosys/mfe1-ui:vxx
+  docker run -d -p 5000:80 --name mfe1-ui ghcr.io/inevosys/mfe1-ui:vxx
   ```
 
 ### Step 3: Run Keycloak in Docker (if not already configured)
